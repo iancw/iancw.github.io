@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[iancw.github.io]]></title><description><![CDATA[iancw's development notes]]></description><link>http://iancw.github.io</link><generator>NodeJS RSS Module</generator><lastBuildDate>Thu, 26 Dec 2013 02:55:02 GMT</lastBuildDate><atom:link href="http://iancw.github.io/rss/" rel="self" type="application/rss+xml"/><author><![CDATA[Ian Will]]></author><ttl>60</ttl><item><title><![CDATA[Django, then Rails on Amazon EC2]]></title><description><![CDATA[<h3 id="background">Background</h3>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[iancw.github.io]]></title><description><![CDATA[iancw's development notes]]></description><link>http://iancw.github.io</link><generator>NodeJS RSS Module</generator><lastBuildDate>Fri, 27 Dec 2013 15:15:26 GMT</lastBuildDate><atom:link href="http://iancw.github.io/rss/" rel="self" type="application/rss+xml"/><author><![CDATA[Ian Will]]></author><ttl>60</ttl><item><title><![CDATA[NOAA Data]]></title><description><![CDATA[<p>NOAA runs three regular forecasts, and has a fourth experimental model</p>
+
+<ul>
+<li>Global Forecast System (GFS)
+<ul><li>1 degree grid</li></ul></li>
+<li>North American Mesoscale (NAM)
+<ul><li>12km grid</li>
+<li>6 hour updates</li>
+<li>forecasts out 84 hours</li>
+<li>~ 116 MB each</li></ul></li>
+<li>Rapid Update Cycle / Rapid Refresh (RUC / RAP)
+<ul><li>13km or 20km grid</li>
+<li>hourly updates</li>
+<li>forecasts out 12 hours</li>
+<li>~ 12 MB each (6 MB for 20km grid)</li></ul></li>
+<li>High-Resolution Rapid Refresh (HRRR)
+<ul><li>3km nest inside RAP</li>
+<li>~ 325 MB (<a href='http://hrrr.agron.iastate.edu/data/hrrr_surface/' >http://hrrr.agron.iastate.edu/data/hrrr_surface/</a>)</li></ul></li>
+</ul>
+
+<p>There is a good comparison between NAM and RAP at (<a href='http://www.drjack.info/blip/INFO/nam' >http://www.drjack.info/blip/INFO/nam</a><em>vs</em>ruc.html).</p>
+
+<p>However, since the Dr. Jack article was written, it appears that RAP has been updated with a 13km grid option.  This appears to better capture the terrain of the Alleghanies.</p>
+
+<hr />
+
+<p>NAM (12km grid)  </p>
+
+<h2 id="imgsrccontentimages2013decnampngaltnam12km"><img src='http://iancw.github.io/content/images/2013/Dec/nam.png'  alt="NAM 12km" /></h2>
+
+<p>RAP (13km grid)  </p>
+
+<h2 id="imgsrccontentimages2013decrap_13pngaltrap13km"><img src='http://iancw.github.io/content/images/2013/Dec/rap_13.png'  alt="RAP 13km" /></h2>
+
+<p>Because RAP is so much smaller than NAM, that's probably what I'll use.  Though HRRR looks appealing (<a href='http://hrrr.agron.iastate.edu/' >http://hrrr.agron.iastate.edu/</a>).</p>
+
+<hr />
+
+<p>HRRR (3km grid) <br />
+<img src='http://iancw.github.io/content/images/2013/Dec/hrrr.png'  alt="HRRR 3km" /></p>]]></description><link>http://iancw.github.io/noaa-data/</link><guid isPermaLink="false">52e79e9e-f085-4089-872f-c6d48717cd6a</guid><dc:creator><![CDATA[Ian Will]]></dc:creator><pubDate>Fri, 27 Dec 2013 04:39:51 GMT</pubDate></item><item><title><![CDATA[Django, then Rails on Amazon EC2]]></title><description><![CDATA[<h3 id="background">Background</h3>
 
 <p>I have used Amazon EC2 once before to host what turned out to be an exorbiantly priced personal minecraft server for my brother and I to play together on.  The current attempt will leverage the <em>free</em> tier.  While at it, I'm playing with github's blog feature.</p>
 
