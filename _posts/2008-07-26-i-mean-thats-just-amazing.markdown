@@ -1,0 +1,24 @@
+---
+layout: post
+status: publish
+published: true
+title: I mean, that's just amazing...
+author:
+  display_name: ian
+  login: ian
+  email: icwill@gmail.com
+  url: http://iancwill.com/blog
+author_login: ian
+author_email: icwill@gmail.com
+author_url: http://iancwill.com/blog
+wordpress_id: 20
+wordpress_url: http://iancwill.com/blog/?p=20
+date: '2008-07-26 18:31:00 -0600'
+date_gmt: '2008-07-26 18:31:00 -0600'
+categories:
+- Uncategorized
+tags: []
+comments: []
+---
+<p>An even more impressive instance of remote debugging occurred on NASA's 1998 Deep Space 1 mission. A half year after the space craft launched, a bit of Lisp code was going to control the spacecraft for two days while conducting a sequence of experiments. Unfortunately, a subtle race condition in the code had escaped detection during ground testing and was already in space. When the bug manifested in the wild--100 million miles away from Earth--the team was able to diagnose and fix the running code, allowing the experiments to complete.<sup>14<&#47;sup> One of the programmers described it as follows:<&#47;p><br />
+<blockquote>Debugging a program running on a $100M piece of hardware that is 100 million miles away is an interesting experience. Having a read-eval-print loop running on the spacecraft proved invaluable in finding and fixing the problem.<&#47;blockquote></p>

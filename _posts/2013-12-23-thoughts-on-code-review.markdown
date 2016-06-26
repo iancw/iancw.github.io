@@ -1,0 +1,35 @@
+---
+layout: post
+status: publish
+published: true
+title: Thoughts on Code Review
+author:
+  display_name: ian
+  login: ian
+  email: icwill@gmail.com
+  url: http://iancwill.com/blog
+author_login: ian
+author_email: icwill@gmail.com
+author_url: http://iancwill.com/blog
+wordpress_id: 152
+wordpress_url: http://iancwill.com/blog/?p=152
+date: '2013-12-23 22:57:12 -0700'
+date_gmt: '2013-12-24 03:57:12 -0700'
+categories:
+- Uncategorized
+tags: []
+comments: []
+---
+<p>These are some reflections on a post by Paul Hinze discussion experience switching from a pairing process to a code review process (http:&#47;&#47;phinze.github.io&#47;2013&#47;12&#47;08&#47;pairing-vs-code-review.html).</p>
+<p>First a caveat:  I&rsquo;m not advocating pairing in our group.  I&rsquo;m not necessarily against it, but it doesn&rsquo;t seem like the best fit for us.</p>
+<p>Hinze highlights potential pitfalls of code reviews that might be helpful for us to consider.  I think our group is actually doing a really good job with code reviews.  The more I read and hear about code review processes, it seems our group's process hits most of the pros and avoids most of the cons.  But Hinze highlights some pitfalls that deserve our consideration.</p>
+<p> - Code review can become a bottleneck<br />
+ - Code review provides late feedback (after completion)<br />
+ - Potential for a bias toward merging regardless of quality (instead of gearing up to explain why desired changes are necessary)<br />
+ - No social pressure to make forward progress (as there is with pairing)</p>
+<p>He also throws this at the end:  &ldquo;find a team that cares about code and process.&rdquo;<br />
+We should be encouraged that we exhibit that mentality.  That should be a selling point when we advertise open dev positions.</p>
+<p>I think I&rsquo;ll send this article around to the team after the holidays and bring up those bullets in one of our weekly meetings for discussion.</p>
+<p>We&rsquo;ve seen the bottleneck problem in our group.  I think we&rsquo;ve taken steps to rectify that over the past few months and I don&rsquo;t think it&rsquo;s been that bad.  I attribute that to having the projects be generally smaller in scope, and also to potentially erring toward the "merging regardless of code quality&rdquo; problem.  I don&rsquo;t think we're overboard on the pro-merge side.  I&rsquo;ve still made a few comments and pushed most code reviews back for a bit more polish.  It is a continuum--zero tolerance for any bug can make code review much more of a bottleneck.  That is alleviated by trusting the developer more, and accepting the potential for more bugs in master.</p>
+<p>We discussed the problems that late design feedback causes during our last review cycle.  There have been a few efforts to communicate about designs early.  I'm not sure how to encourage others to be more proactive in communicating their designs.  Perhaps we should try adding an explicit step in our ticket process for design, though I wish it could be more organic.</p>
+<p>We&rsquo;ve also noted the proclivity of our group to have languishing tasking that seems to make little forward progress.  We&rsquo;ve been more disciplined about making the status of tickets in Trac reflect reality, and having a single assignment at any given time.  That increases accountability and clarifies priority, but it's still an issue.  Peopleware has some interesting inputs regarding productivity--more of that in future blog posts.</p>

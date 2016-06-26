@@ -1,118 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-    
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+---
+layout: default
+---
 
-    
-    <title>iancw.github.io</title>
-    <meta name="description" content="iancw's development notes" />
+<div class="home">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="MobileOptimized" content="320" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <h1 class="page-heading">Posts</h1>
 
-    
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css" />
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic|Open+Sans:700,400" />
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-    
-    <meta name="generator" content="Ghost 0.3" />
-<link rel="alternate" type="application/rss+xml" title="RSS" href="rss/index.html">
-</head>
-<body class="home-template">
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
 
-    
-    
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
-
-
-
-<header id="site-head" >
-    <div class="vertical">
-        <div id="site-head-content" class="inner">
-
-            
-            <h1 class="blog-title">iancw.github.io</h1>
-            <h2 class="blog-description">iancw&#x27;s development notes</h2>
-        </div>
-    </div>
-</header>
-
-
-<main class="content" role="main">
-
-    
-    
-
-    <article class="post">
-        <header class="post-header">
-            <span class="post-meta"><time datetime="2013-12-26">26 Dec 2013</time> </span>
-            <h2 class="post-title"><a href="noaa-data/index.html">NOAA Data</a></h2>
-
-        </header>
-        <section class="post-excerpt">
-            <p>NOAA runs three regular forecasts, and has a fourth experimental model
-
-
-Global Forecast System (GFS)
-1 degree grid
-North American Mesoscale (NAM)
-12km grid
-6 hour updates
-forecasts out 84 hours
-~ 116 MB each
-Rapid Update Cycle / Rapid Refresh (RUC / RAP)
-13km or 20km grid
-hourly updates
-forecasts out 12&hellip;</p>
-        </section>
-    </article>
-
-    
-
-    <article class="post">
-        <header class="post-header">
-            <span class="post-meta"><time datetime="2013-12-25">25 Dec 2013</time> </span>
-            <h2 class="post-title"><a href="django-then-rails-on-amazon-ec2/index.html">Django, then Rails on Amazon EC2</a></h2>
-
-        </header>
-        <section class="post-excerpt">
-            <p>Background
-
-I have used Amazon EC2 once before to host what turned out to be an exorbiantly priced personal minecraft server for my brother and I to play together on.  The current attempt will leverage the free tier.  While at it, I'm playing with github's blog feature.
-
-Observations
-
-The free&hellip;</p>
-        </section>
-    </article>
-
-    
-
-    
-    <nav class="pagination" role="pagination">
-    
-    <span class="page-number">Page 1 of 1</span>
-    
-</nav>
-
-</main>
-
-    <footer class="site-footer">
-        <a class="subscribe icon-feed" href="http://iancw.github.io/rss/"><span class="tooltip">Subscribe!</span></a>
-        <div class="inner">
-             <section class="copyright">All content copyright <a href="index.html">iancw.github.io</a> &copy; 2013 &bull; All rights reserved.</section>
-             <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://ghost.org">Ghost</a></section>
-        </div>
-    </footer>
-
-    
-    <script src="shared/vendor/jquery/jquery.js"></script>
-
-    
-    <script type="text/javascript" src="assets/js/index.js"></script>
-
-</body>
-</html>
+</div>

@@ -1,0 +1,23 @@
+---
+layout: post
+status: publish
+published: true
+title: UML Quagmire
+author:
+  display_name: ian
+  login: ian
+  email: icwill@gmail.com
+  url: http://iancwill.com/blog
+author_login: ian
+author_email: icwill@gmail.com
+author_url: http://iancwill.com/blog
+wordpress_id: 10
+wordpress_url: http://iancwill.com/blog/?p=10
+date: '2007-03-14 12:13:00 -0600'
+date_gmt: '2007-03-14 12:13:00 -0600'
+categories:
+- Uncategorized
+tags: []
+comments: []
+---
+<p>As I spend more time with UML diagrams, I'm torn.  On one hand, I think they're a great  construct that allows designers to -think- about design in more concrete ways, and to record those thoughts in ways that can be communicated to other people.  However, whenever I have to UML diagram for more than a day or two straight, I always have problems fleshing out the entire system.  Initially there are pieces that confuse me, and I can get enthusiastic about figuring those out.  But after the complex parts are sorted out, there's still much more diagramming to be done, but I just can't get into it.  <br &#47;><br &#47;>So I end up staring at these sparse diagrams--with maybe two classes and an aggregation relationship--for hours, making no progress.  I don't know what these less interesting parts of the system really need to do.  Maybe I just haven't thought about them enough.  I'll try thinking more seriously about them today.  I felt the need to document this feeling of being set adrift in a sea of UML without direction, plan, or course of action.</p>

@@ -1,0 +1,28 @@
+---
+layout: post
+status: publish
+published: true
+title: Ubuntu keyserver from behind a firewall
+author:
+  display_name: ian
+  login: ian
+  email: icwill@gmail.com
+  url: http://iancwill.com/blog
+author_login: ian
+author_email: icwill@gmail.com
+author_url: http://iancwill.com/blog
+wordpress_id: 67
+wordpress_url: http://iancwill.com/blog/?p=67
+date: '2011-07-21 10:52:53 -0600'
+date_gmt: '2011-07-21 14:52:53 -0600'
+categories:
+- Uncategorized
+tags: []
+comments: []
+---
+<p>This is how you do it.  It's been so long...<br />
+Sadly, only paying users can access spotify's linux version, since it doesn't support adds yet.</p>
+<p>=(</p>
+<blockquote><p>
+sudo apt-key adv --recv-keys --keyserver hkp:&#47;&#47;keyserver.ubuntu.com:80 <key><br />
+<&#47;blockquote></p>
