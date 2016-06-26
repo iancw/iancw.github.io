@@ -1,0 +1,42 @@
+---
+layout: post
+status: publish
+published: true
+title: Ruby, Gruff, Rmagic, imagemagick, ghostscripts, fonts, ARG!!!!
+author:
+  display_name: ian
+  login: ian
+  email: icwill@gmail.com
+  url: http://iancwill.com/blog
+author_login: ian
+author_email: icwill@gmail.com
+author_url: http://iancwill.com/blog
+wordpress_id: 181
+wordpress_url: http://iancwill.com/blog/?p=181
+date: '2014-07-26 15:33:48 -0600'
+date_gmt: '2014-07-26 19:33:48 -0600'
+---
+<p>I'm just trying to graph some bank balance history with ruby, because apparently all personal finances apps for OSX suck.  Ruby is way nicer than python, although it doesn't have numpy.  But numpy arrays aren't as great with heterogenous data, so I'd have to loop through it all anyway.  So why not use ruby, surely I can make a line graph easily?</p>
+<p>Theoretically gruff solves the problem, if you can get rmagick installed right.  </p>
+<blockquote><p>gem install rmagick</p></blockquote>
+<p>All is well.</p>
+<p>But when I run my program...</p>
+<blockquote><p>iMac:simple-banking$ ruby quick-test.rb<br />
+/usr/local/Cellar/ruby/2.1.0/lib/ruby/gems/2.1.0/gems/gruff-0.5.1/lib/gruff/base.rb:1142:in `annotate': unable to read font `/usr/local/share/ghostscript/fonts/n019003l.pfb' @ error/annotate.c/RenderFreetype/1126: `(null)' (Magick::ImageMagickError)<br />
+	from /usr/local/Cellar/ruby/2.1.0/lib/ruby/gems/2.1.0/gems/gruff-0.5.1/lib/gruff/base.rb:1142:in `annotate_scaled'<br />
+	from /usr/local/Cellar/ruby/2.1.0/lib/ruby/gems/2.1.0/gems/gruff-0.5.1/lib/gruff/base.rb:888:in `draw_no_data'<br />
+	from /usr/local/Cellar/ruby/2.1.0/lib/ruby/gems/2.1.0/gems/gruff-0.5.1/lib/gruff/base.rb:445:in `draw'<br />
+	from /usr/local/Cellar/ruby/2.1.0/lib/ruby/gems/2.1.0/gems/gruff-0.5.1/lib/gruff/line.rb:174:in `draw'<br />
+	from /usr/local/Cellar/ruby/2.1.0/lib/ruby/gems/2.1.0/gems/gruff-0.5.1/lib/gruff/base.rb:424:in `write'<br />
+	from /Users/will/src/simple-banking/play.rb:46:in `graph_balance'<br />
+	from quick-test.rb:4:in `<main>'<br />
+^C
+</p></blockquote>
+<p>These guys propose a solution: http://rubyjunction.us/issues-with-imagemagick----unable-to-read-font, who references https://garrickvanburen.com/archive/installing-imagemagick-rmagick-on-os-x-10-6-snow-leopard/.  But that's all pretty overkill.  I have home-brew set up, with imagemagick and ghostscript and rmagick and everything installed.  I don't want to run some guy's script to re-install everything outside of home-brew.</p>
+<p>Finally I find this http://superuser.com/questions/324980/how-do-you-re-install-a-package-with-homebrew-mac, which helpfully includes the note 'Some tools will complain unless the ghostscript fonts are installed to /usr/local/share/ghostscript/fonts'.  Yes! That is my problem!  But reinstalling imagemagick with fontconfig didn't solve that problem.</p>
+<p>Then this guy http://stackoverflow.com/questions/7412208/imagemagick-and-os-x-lion-trouble suggests building ImageMagick from source with the --with-gs-font-dir=/usr/local/share/ghostscript/fonts.  Does that tell imagemagick where the fonts are?  Or does it put fonts there?  I'm trying...</p>
+<blockquote><p>
+ brew reinstall imagemagick --with-fontconfig --with-gs-font-dir=/usr/local/share/ghostscript/fonts
+</p></blockquote>
+<p>...not sure if home-brew passes along the arguments like that.  Appears not.</p>
+<p>Wow, well, finally something worked.  Who knows how.  I still have no fonts in /usr/local/share/ghostscript.  I suspect the step that finally fixed things was, after installing imagemagick --with-fontconfig, uninstall the rmagick gem and re-installing it.</p>

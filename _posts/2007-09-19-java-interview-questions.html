@@ -1,0 +1,52 @@
+---
+layout: post
+status: publish
+published: true
+title: Java Interview Questions
+author:
+  display_name: ian
+  login: ian
+  email: icwill@gmail.com
+  url: http://iancwill.com/blog
+author_login: ian
+author_email: icwill@gmail.com
+author_url: http://iancwill.com/blog
+wordpress_id: 16
+wordpress_url: http://iancwill.com/blog/?p=16
+date: '2007-09-19 00:43:00 -0600'
+date_gmt: '2007-09-19 00:43:00 -0600'
+---
+<p>As a team lead, I'll be participating in the interview process.  We've got an interview tomorrow, and I've been asked to prepare to spend some time with the candidate.  So what questions are good to ask when interviewing a Java developer?
+<ul>
+<li>When is a finally block entered?
+<ul>
+<li>After catching an exception?</li>
+<li>After successful completion of the try block?</li>
+<li>Will it be entered if the exception is not caught?</li>
+<li>Will it be entered if the application exits?</li>
+</ul>
+</li>
+<li>Can you pass by value in Java?<br /><i>(Answer: primitives are passed by value, you could argue that references=pointers, and that the pointers are  <a href="http://javadude.com/articles/passbyvalue.htm">passed by value</a>)</i></li>
+<li>Is there a difference between Hashtable and HashMap?</li>
+<li>How about between Vector and ArrayList?</li>
+<li>What's the difference between swing and awt?<br /><i>(Answer: Light-weight vs heavy-weight) </i>
+<ul>
+<li>What's the difference between light and heavy weight components?</li>
+<p><i>(Answer:  Light-weight = same appearance on all platforms, but slower execution)<br />(AWT components map to the OS's windowing toolkit, whereas swing is implemented with Java2d)</i>
+<li>Are light and heavy weight components interchangable?<br /><i>(Looking for knowledge that they shouldn't generally be used together due to z-buffer incompatabilities)</i></li>
+<li>Is there a naming convention to distinguish heavy from lightweight components?<br /><i>(the J-prefix...)</i></li>
+</ul>
+</li>
+<li>What are the values of s1 and s2 after invoking the <i>swap</i> method?<br />
+<blockquote>public void swap(String s1, String s2)<br />{<br />   String tmp = s1;<br />   s1 = s2;<br />   s2 = tmp;<br />}<br />String s1 = "a";<br />String s2 = "b";<br />swap(s1, s2);</p></blockquote>
+<p>
+<ul>
+<li>What happens if primitive ints are used instead of Strings?</li>
+<li>What happens if we make the arguments of the swap function final?</li>
+</ul>
+</li>
+<li>Give an example of a method that can swap values of two variables with effects preserved in the caller's scope.<br /><i>Example: <br />
+<blockquote>public void swap(Point p1, Ptring p2)<br />{<br />   Point tmp = new Point(p1.x, p1.y);<br />   p1.x = p2x; p1.y = p2.y;<br />   p2.x = tmp.x; p2.y = tmp.y;<br />}</p></blockquote>
+<p></i></li>
+<li>What happens if we make the arguments to the working swap function <b>final</b>?</li>
+<p></ul>

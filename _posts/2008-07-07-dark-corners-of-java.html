@@ -1,0 +1,25 @@
+---
+layout: post
+status: publish
+published: true
+title: Dark Corners of Java
+author:
+  display_name: ian
+  login: ian
+  email: icwill@gmail.com
+  url: http://iancwill.com/blog
+author_login: ian
+author_email: icwill@gmail.com
+author_url: http://iancwill.com/blog
+wordpress_id: 18
+wordpress_url: http://iancwill.com/blog/?p=18
+date: '2008-07-07 23:07:00 -0600'
+date_gmt: '2008-07-07 23:07:00 -0600'
+---
+<p>Plugins are central to our software's architecture.  The project was envisioned as a basic framework which would be added to by isolated plugins piece by piece.  One of the decisions made before I came on board was to sidestep the problem of adding plugin code to the classpath by creating a custom class loader for each plugin.  I think another perceived benefit was that package name conflicts between plugins would not be a problem.  A few of the "new wave" developers on the project and I share skepticism for the custom class loader.  It just seems like extra complexity that could be avoided.  But it works, so why bother it? ...</p>
+<p>Enter splash screen.  A seemingly unrelated component.  At some point it was decided the splash screen wasn't displaying updates promptly enough, so a custom EventQueue was created which could be force-flushed.  This did not conflict with the class loader (as should be expected--what does the event queue have to do with the class loader?  Besides maybe *smelling* like things that are better not to mess with.)</p>
+<p>Much later, I was messing around with JProfiler and thought our event bus was using up a lot more CPU cycles than seemed appropriate.  It also seemed to send three to fifteen events to each listener for every one that went in.  (Many listeners would receive events, then re-throw an event that appeared completely identical to me.  I guess the listeners used their internal state to differentiate between identical events.  P.S.  Please never do this.)  I decided that *maybe* our custom event queue could be contributing to the mess.  And since EventQueue seems to be designed as a stack, it'd make sense to pop our custom event queue after we were done with the splash screen to remove a possible source of errors or inefficiency.  Don't think it helped much, but didn't break anything either.  </p>
+<p>Enter custom class loader.  (Thought:  Problems didn't show up until Java 6u10 entered.  Probably related)</p>
+<p>Why aren't saved files loading properly any more?  Did I forget to export the packages via our xml plugin registration file?  No...  What's the deal?   Hmm...the classloader we send to Castor's unmarshaller is Launcher$AppClassLoader.  That's not our custom loader.  Hey, all my coworkers say we're passing our custom handler to castor's unmarshaller.  I haven't changed anything that would affect that.  Why is my local environment the only one broken?  A quick svn diff says the only code I've changed that executes before opening a saved scenario is the code that pops our custom event queue.  But *that* couldn't possibly affect the class loader...but I've been staring at this problem for three days.  So...I'll pull the line out just to prove I haven't broken anything...hmmm...so here's what happens</p>
+<p>1:  Make a custom class loader, call Thread.currentThread().setContextClassLoader( customLoader ) in the main() thread<br />2:  Make a custom event queue, call  Toolkit.getDefaultToolkit().getSystemEventQueue().push( customQueue )<br />3:  Pop event queue via EventQueue.pop()<br />4:  SwingUtilities.invokeLater( new Runnable() ... run(){ Thread.getContextClassLoader() will *not* be your custom loader.  It will be Launcher$AppClassLoader.</p>
+<p>However, if step 3 is omitted, the class loader *will* be your custom loader.  Is this a bug with the 6u10 jvm?  Or am I just missing the connection between event queues and class loaders?</p>

@@ -1,0 +1,27 @@
+---
+layout: post
+status: publish
+published: true
+title: Repository Structure / code organization
+author:
+  display_name: ian
+  login: ian
+  email: icwill@gmail.com
+  url: http://iancwill.com/blog
+author_login: ian
+author_email: icwill@gmail.com
+author_url: http://iancwill.com/blog
+wordpress_id: 17
+wordpress_url: http://iancwill.com/blog/?p=17
+date: '2008-07-04 00:05:00 -0600'
+date_gmt: '2008-07-04 00:05:00 -0600'
+---
+<p>Monday:  LA (Recovering from PST/late plane arrival and sorting out pictures)<br />Tuesday:  Why doesn't my project compile any more?<br />Wednesday:  Why does my project still fail to compile?<br />Thursday:  Why can't our custom class loader find my classes?</p>
+<p>Read:  A lot of wasted time.  Contributing factors?  Kinks in our development setup and unnecessary complexity.</p>
+<p>Tuesday and Wednesday were dedicated to figuring out why the heck my code would no longer build.  The answer lay in our repository structure, and a recent addition by a third-party developer to our code base.  We use Eclipse and svn.  Our code is broken into a huge number of projects. Our repository structure like this: </p>
+<p>svn/root/trunk/BaseLibs (theoretically shared across our division)<br />svn/root/trunk/CoreLibs (built on base libs, specific to our group)<br />svn/root/trunk/CoreGuiLibs (swing related, group code)<br />svn/root/trunk/DatabaseComponent (but with a way more obscure name, pulled from the dusty depths of 20 years of jargon tradition)<br />svn/root/trunk/DomainComponent (name also de-obscured)<br />svn/root/trunk/CustomerA-iteration1<br />svn/root/trunk/CustomerB-iteration1<br />svn/root/trunk/CustomerA-iteration2<br />svn/root/trunk/Application<br />svn/root/AppFeatureA<br />svn/root/AppFeatureB<br />svn/root/PluginA<br />svn/root/PluginB<br />svn/root/Plugins (contains a complex package structure for many un-related plugins)</p>
+<p>I don't think listing de-jargonized repository paths is doing much to convey my point so we'll move on.  A few observations about the organization scheme...<br />It appears our repository organization philosophy has pendulumed between two ideals.  The first is that each task (each "effort," with tangible completion criteria) should have its own project (i.e. an Eclipse project) and all of those should reside in the trunk directory without further hierarchical organization.  </p>
+<p>A few words about that strategy...<br />It exhibits a management anti-pattern:  that all efforts with tangible completion criteria must produce *new code*.  It seems very clear to me that our group is dangerously, and to its detriment, blind to the importance and possibility of improving existing code or expanding it to cover new requirements.  Instead, a new requirement means a new effort with completely new code.  Similarity to existing functionality is ignored.  Orthogonality of the resulting product is not considered relevant.  We end up with an amalgamation of very specific code that meets very specific customer requirements.  (And which frequently is very similar...except for a couple minor changes.)  (I'm sure this contributes to our liberal use of copy-paste coding.)</p>
+<p>Secondly (and more pragmatically) the strategy of dumping every effort into a flat directory (svn/root/trunk) quickly turns into a lot of names to keep track of.  I remember as a new developer on the team being totally overwhelmed by the sheer number of project names I had to sort through to find something.  Without a history with the project and a familiarity with every individual effort undertaken by the software team, it's very difficult to make any sense of the trunk contents; there's a lot of noise to wade through.  With more projects (and more obscure and confusing the project names), the confusion grows exponentially.</p>
+<p>The competing outlook is that the trunk should be organized into a few ( < 10 ) eclipse projects which build on each other, becoming more customer specific the higher they get.  </p>
+<p>This option appears to have been in vogue at one point, because a few of our projects are organized this way (most notably the Plugins project), but was apparently abandoned and the original (flat, project proliferation) seems to be the current fashion.</p>

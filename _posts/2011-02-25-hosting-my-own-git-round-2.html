@@ -1,0 +1,29 @@
+---
+layout: post
+status: publish
+published: true
+title: Hosting my own git, round 2
+author:
+  display_name: ian
+  login: ian
+  email: icwill@gmail.com
+  url: http://iancwill.com/blog
+author_login: ian
+author_email: icwill@gmail.com
+author_url: http://iancwill.com/blog
+wordpress_id: 47
+wordpress_url: http://iancwill.com/blog/?p=47
+date: '2011-02-25 10:32:21 -0700'
+date_gmt: '2011-02-25 15:32:21 -0700'
+---
+<p>I uploaded the work for that graphics project to my own git server.  Here are a couple of the tricks I learned.</p>
+<p>1.  You have to add a file called git-daemon-export-ok in the git directory</p>
+<blockquote><p>
+cd myrepo.git/<br />
+touch git-daemon-export-ok
+</p></blockquote>
+<p>2.  You can't push to a non-bare git repository, so when you init or clone it, you have to use --bare.</p>
+<blockquote><p>
+git clone --bare initial-git-repo/ remote-git.git/
+</p></blockquote>
+<p>(p.s. hg kind of sucks.  It's probably better for the uninitiated windows user, e.g. classmates on group projects, but you inevitably have at least one conflict during the course of a semester, and the conflict resolution is kind of obscure.  Some critical functionality, such as branching, must be done through manual directory duplication.  Super lame.)</p>

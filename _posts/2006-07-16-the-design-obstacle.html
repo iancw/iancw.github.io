@@ -1,0 +1,21 @@
+---
+layout: post
+status: publish
+published: true
+title: The Design Obstacle
+author:
+  display_name: ian
+  login: ian
+  email: icwill@gmail.com
+  url: http://iancwill.com/blog
+author_login: ian
+author_email: icwill@gmail.com
+author_url: http://iancwill.com/blog
+wordpress_id: 6
+wordpress_url: http://iancwill.com/blog/?p=6
+date: '2006-07-16 03:14:00 -0600'
+date_gmt: '2006-07-16 03:14:00 -0600'
+---
+<p>I feel the design phase of my projects is never sufficient.  I think I "over-designed" a large-ish project, and realised that a few basic assumptions I'd made were really incorrect meaning the whole thing needs a re-working.  But the reason my design seems to be lacking is that it never moves far beyond class identification phase.  I can't figure out how to identify key functions without going through the sequencing and relationships in code.  Abstractly I can move and link boxes and it helps me think about the problem space, but I have a very difficult time identifying the code-level interactions there. </p>
+<p>Side note:  My typical "design" process has moved to a few standard stages.  First is the use case, who's usefullness I was skeptical about but which I've recently come to regard as useful.  Use case basically  means defining what you're trying to do (an interaction sequence with users, but possibly the same with other applications or sub-components).  This involves sketching out the GUI's and defining event flows.  Next comes the UML portion, which begins with component identification or possibly package definition.  Basically I'm deciding the large breakdown of the project.  This transitions into class definition; each component having a few obvious classes.  Defining classes and specifying their relationships to other classes happens simultaneously.  Then, ideally, I feel I should define all major methods and members.  I don't though.  </p>
+<p>Anyway, I think an important starting place for design would be defining "coupling" locations.  After figuring out the major sub-components, I should lay down how each component will be coupled with the others.  These couples should become interfaces, and should also be defined with real function/contracts.  Intra-component design can then be done to whichever extent it naturally flows in UML.  Once you're staring at UML for 15 minutes before dreaming up an important function, you should probably move to code.</p>

@@ -1,0 +1,38 @@
+---
+layout: post
+status: publish
+published: true
+title: Oracle sqlplus / instant client on Mac OS X Lion
+author:
+  display_name: ian
+  login: ian
+  email: icwill@gmail.com
+  url: http://iancwill.com/blog
+author_login: ian
+author_email: icwill@gmail.com
+author_url: http://iancwill.com/blog
+wordpress_id: 108
+wordpress_url: http://iancwill.com/blog/?p=108
+date: '2012-02-10 09:17:36 -0700'
+date_gmt: '2012-02-10 14:17:36 -0700'
+---
+<p>Summary:  The 64 bit client doesn't work on Mac OS X Lion, but the x86 version does. </p>
+<ol>
+<li>Download the x86 basic client and the x86 sqlplus client from <a href="http://www.oracle.com/technetwork/topics/intel-macsoft-096467.html">http://www.oracle.com/technetwork/topics/intel-macsoft-096467.html</a></li>
+<li>Unzip both into the same directory</li>
+<li>Set DYLD_LIBRARY_PATH and run sqlplus</li>
+</ol>
+<p>With 32 bit...</p>
+<blockquote><p>
+iMac:instantclient_10_2-basic-x86$ DYLD_LIBRARY_PATH=`pwd` ./sqlplus </p>
+<p>SQL*Plus: Release 10.2.0.4.0 - Production on Fri Feb 10 09:12:52 2012</p>
+<p>Copyright (c) 1982, 2007, Oracle.  All Rights Reserved.</p>
+<p>Enter user-name: ^C
+</p></blockquote>
+<p>With 64 bit...</p>
+<blockquote><p>
+iMac:instantclient_10_2-basic-x86$ cd ../instantclient_10_2-basic-x64/<br />
+iMac:instantclient_10_2-basic-x64$ DYLD_LIBRARY_PATH=`pwd` ./sqlplus<br />
+Segmentation fault: 11<br />
+iMac:instantclient_10_2-basic-x64$
+</p></blockquote>

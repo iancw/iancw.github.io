@@ -1,0 +1,26 @@
+---
+layout: post
+status: publish
+published: true
+title: Sqlplus over a remote connection
+author:
+  display_name: ian
+  login: ian
+  email: icwill@gmail.com
+  url: http://iancwill.com/blog
+author_login: ian
+author_email: icwill@gmail.com
+author_url: http://iancwill.com/blog
+wordpress_id: 122
+wordpress_url: http://iancwill.com/blog/?p=122
+date: '2012-02-14 20:58:23 -0700'
+date_gmt: '2012-02-15 01:58:23 -0700'
+---
+<p>To connect to a remote database with sqlplus without messing with TNS_PING or .ora config files, use this syntax:</p>
+<blockquote><p>
+sqlplus $USER@'(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=$HOSTNAME)(PORT=1521)))(CONNECT_DATA=(SID=$DATABASE_NAME)))'
+</p></blockquote>
+<p>You can append a .sql file afterwards to have it run automatically.</p>
+<blockquote><p>
+sqlplus $USER@'(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=$HOSTNAME)(PORT=1521)))(CONNECT_DATA=(SID=$DATABASE_NAME)))' @$SCRIPT_FILE
+</p></blockquote>

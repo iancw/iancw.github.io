@@ -1,0 +1,38 @@
+---
+layout: post
+status: publish
+published: true
+title: Microcontroller Programming
+author:
+  display_name: ian
+  login: ian
+  email: icwill@gmail.com
+  url: http://iancwill.com/blog
+author_login: ian
+author_email: icwill@gmail.com
+author_url: http://iancwill.com/blog
+wordpress_id: 25
+wordpress_url: http://iancwill.com/blog/?p=25
+date: '2010-07-24 06:16:00 -0600'
+date_gmt: '2010-07-24 06:16:00 -0600'
+---
+<p><img src="http://farm5.static.flickr.com/4143/4822604791_1365984132_m.jpg" /></p>
+<p>This is really exciting.  I'm following the introduction to microcontroller programming tutorial at http://www.sparkfun.com/commerce/tutorial_info.php?tutorials_id=93.  I wasn't sure I would be able to write code for it on linux.  Well it was about as easy as it could get.  And I've got a blinking LED.</p>
+<p>
+<blockquote>ian@julia:~/sandbox/avr$ avrdude -p atmega168 -P /dev/parport0 -c stk200    -U flash:w:blink_1MHz.hex</p>
+<p>avrdude: AVR device initialized and ready to accept instructions</p>
+<p>Reading | ################################################## | 100% 0.00s</p>
+<p>avrdude: Device signature = 0x1e950f<br />avrdude: Expected signature for ATMEGA168 is 1E 94 06<br />Double check chip, or use -F to override this check.</p>
+<p>avrdude done.  Thank you.</p>
+<p>ian@julia:~/sandbox/avr$ avrdude -p atmega328P -P /dev/parport0 -c stk200    -U flash:w:blink_1MHz.hex</p>
+<p>avrdude: AVR device initialized and ready to accept instructions</p>
+<p>Reading | ################################################## | 100% 0.00s</p>
+<p>avrdude: Device signature = 0x1e950f<br />avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed<br />To disable this feature, specify the -D option.<br />avrdude: erasing chip<br />avrdude: reading input file "blink_1MHz.hex"<br />avrdude: input file blink_1MHz.hex auto detected as Intel Hex<br />avrdude: writing flash (300 bytes):</p>
+<p>Writing | ################################################## | 100% 0.14s</p>
+<p>avrdude: 300 bytes of flash written<br />avrdude: verifying flash memory against blink_1MHz.hex:<br />avrdude: load data flash data from input file blink_1MHz.hex:<br />avrdude: input file blink_1MHz.hex auto detected as Intel Hex<br />avrdude: input file blink_1MHz.hex contains 300 bytes<br />avrdude: reading on-chip flash data:</p>
+<p>Reading | ################################################## | 100% 0.13s</p>
+<p>avrdude: verifying ...<br />avrdude: 300 bytes of flash verified</p>
+<p>avrdude: safemode: Fuses OK</p>
+<p>avrdude done.  Thank you.</p>
+<p>ian@julia:~/sandbox/avr$ </p></blockquote>
+<p><br clear="all" /></p>

@@ -1,0 +1,29 @@
+---
+layout: post
+status: publish
+published: true
+title: Git vs svn
+author:
+  display_name: ian
+  login: ian
+  email: icwill@gmail.com
+  url: http://iancwill.com/blog
+author_login: ian
+author_email: icwill@gmail.com
+author_url: http://iancwill.com/blog
+wordpress_id: 97
+wordpress_url: http://iancwill.com/blog/?p=97
+date: '2012-02-10 09:08:17 -0700'
+date_gmt: '2012-02-10 14:08:17 -0700'
+---
+<p>I found this blog post by one of the subversion maintainers in a hacker news article a few weeks ago <a href="http://blog.red-bean.com/sussman/?p=20">here</a>.  It was posted in 2005, five years after development of subversion began.  That was about the same time that I started working as a professional software developer and using svn for team source control.  We switch to using git in 2010 after a six month trial using git-svn.  Jeff references this article by Greg Hudson as  <a href="http://web.mit.edu/~ghudson/thoughts/bitkeeper.whynot">inspiration</a>.</p>
+<p>Jeff argues that using a central repository forces collaboration that otherwise is at risk of not happening.  Conversely, he argues, gits' distributed nature encourages cowboy style isolated development.  He worries that distributed source control encourages anti-social programming, and that most teams are better off with tools that force communication.  </p>
+<p>My experience has been the opposite; our switch to git was accompanied by increased communication between team members.  There were other factors involved and I wouldn't say that git was the root cause of increased communication.  However, I haven't seen it detract from communication.  I think git is simply a better tool than svn.  It's better at branching and merging, it's faster, it gives developers more control over their change sets, and it doesn't require connectivity.</p>
+<p>I think the line of argument Jeff uses--that git is too powerful and too flexible for a programmer's own good--is a dangerous mindset to perpetuate.  Don't encourage coders away from sharp, powerful tools that give great flexibility and great control because you're afraid they could be used to ill ends.  Coders should take personal responsibility to not be anti-social rather than being prevented from using good tools because they might be abused.</p>
+<p>Advantages of git:<br />
+ - Easy to isolate related changes into branches (e.g. changes for a small bug fix)<br />
+ - Easy to switch between branches (e.g. to interrupt work on one bug fix when your coworker asks you to take a look at their code)<br />
+ - Easy to combine branches (e.g. to merge or cherry-pick your bug fix into the main line)<br />
+ - Doesn't litter your directory structure with .svn directories</p>
+<p>I found that for our team, rather than inhibiting communication, git enhanced it.  I think this was mostly due to the ease of branching.  With subversion, if we wanted to review code before allowing it into the mainline, we would either need to generate diffs or send copies of the code outside of svn channels, or we would have to commit to an integration branch, then pull changes up to the stable branch after reviewing.  But svn's branching and merging doesn't allow as much flexibility.  Our team tried working in individual developer branches, and in related feature branches, but always had issues merging branches together.  Often this degenerated into manually copying modified files onto a clean trunk file structure and committing them all at once.  This is counter productive to communication.  If your commits aren't checked into svn because they aren't totally complete, then coworkers can't interact with your code until you declare yourself done.  With git it's easy to merge their branch into yours to see if there are any conflicts and to play with their new features, then switch back to your regular branch when you're done.</p>
+<p>In summary, good branching and merging abilities foster intra-team communication, and git provides better branching and merging tools than svn.  True, git would allow a programmer to retreat to a cave, re-write the entire project, and drop that bomb on the rest of the unsuspecting team.  But that's possible with svn too, only with git the team could feasibly defuse the bomb by breaking it into smaller chunks and merging or cherry picking selectively.  While it would give the 'bomber' the ability to track work out of sync with the rest of the team (which seems to be Jeff's greatest fear), it would preserve those commits for forensic inspection.  Subversion still allows code bombs, but gives the team worse tools with which to handle those large changes.  Both version control systems allow code bombs, git makes it easier on both ends--both bomb construction and post-bomb integration.  This doesn't mean git is a bad tool, it means it doesn't solve the problem of bad programmers.  In summary, programmers can be antisocial, you can't use a version control system to stop them, and git provides more flexibility during both development and integration than svn.  I would argue that it's simply a better tool.</p>
