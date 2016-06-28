@@ -20,13 +20,13 @@ date_gmt: '2011-12-16 15:22:53 -0700'
 <p>Enter AT commands, which I learned about in my embedded programming class last semester.  It was remarkably easy to get in to the v195!  </p>
 <p>Step 1:  Set up a bluetooth connection to the phone.<br />
   Edit the serial ports, set up an RS-232 link.  I'm not sure what the service field does, but leaving it as a network gateway worked.  Change the name to something short and easy to type.</p>
-<p><img src="http://iancwill.com/blog/wp-content/uploads/2011/12/bluetooth-setup.png"/><br />
-<img src="http://iancwill.com/blog/wp-content/uploads/2011/12/bluetooth-edit.png"/><br />
-<img src="http://iancwill.com/blog/wp-content/uploads/2011/12/bluetooth-serial.png"/></p>
+<p><img src="/content/2011/12/bluetooth-setup.png"/><br />
+<img src="/content/2011/12/bluetooth-edit.png"/><br />
+<img src="/content/2011/12/bluetooth-serial.png"/></p>
 <p>Step 2:  Run mini com</p>
 <p>Now you can connect to the serial port using minicom, start it with the -s flag to change configuration before trying to connect.</p>
 <blockquote><p>minicom -s</p></blockquote>
-<p><img src="http://iancwill.com/blog/wp-content/uploads/2011/12/minicom-config.png"/></p>
+<p><img src="/content/2011/12/minicom-config.png"/></p>
 <p>  Use baud 9600 with 8N1 and change the name of the serial device to /dev/tty.<what you typed in the name field></p>
 <p>Step 3:  Go to town!<br />
   Test the connection by typing AT, you should see an OK back. </p>
