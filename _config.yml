@@ -8,8 +8,8 @@ permalink:        pretty
 
 # Setup
 title:            Revolving Design
-tagline:          'A Jekyll theme'
-description:      'Just some thoughts about software and random notes to my future-self'
+tagline:          'A developer blog'
+description:      'Notes to my future-self'
 url:              http://iancwill.com
 baseurl:          /
 
@@ -22,11 +22,7 @@ paginate:         2
 # Custom vars
 version:          2.1.0
 
-github:
-  repo:           https://github.com/iancw/iancw.github.io
-  me:             https://github.com/iancw/
-
-twitter:
-  me:             https://twitter.com/ian_cw
+github_username:  iancw
+twitter_username: ian_cw
 
 gems: [jekyll-paginate]

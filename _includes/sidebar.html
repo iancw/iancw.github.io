@@ -24,8 +24,17 @@
           {% endif %}
         {% endif %}
       {% endfor %}
+      <div class="sidebar-nav-item">
+      {% if site.twitter_username %}
+        {% include icon-twitter.html username=site.twitter_username %}
+      {% endif %}
+      </div>
+      <div class="sidebar-nav-item">
+      {% if site.github_username %}
+        {% include icon-github.html username=site.github_username %}
+      {% endif %}
+      </div>
 
-      <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
     </nav>
 
     <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
