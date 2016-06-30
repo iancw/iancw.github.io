@@ -3,7 +3,7 @@ layout: post
 title: First Impressions of Swift
 ---
 
-This morning I began working through the [swift tutorial] (https://developer.apple.com/library/ios/referencelibrary/GettingStarted/DevelopiOSAppsSwift/Lesson1.html).
+This morning I began working through the [swift tutorial](https://developer.apple.com/library/ios/referencelibrary/GettingStarted/DevelopiOSAppsSwift/Lesson1.html).
 
 The playground is neat.
 
