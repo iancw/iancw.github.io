@@ -26,3 +26,5 @@ github_username:  iancw
 twitter_username: ian_cw
 
 gems: [jekyll-paginate]
+
+google_analytics: UA-20603055-1
